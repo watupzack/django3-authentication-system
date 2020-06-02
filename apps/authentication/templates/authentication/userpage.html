@@ -1,0 +1,15 @@
+{% extends 'authentication/base.html' %}
+{% block content %}
+  <h1>Logged in as <span class="userpage-username">{{ user.username }}</span></h1>
+  {% if user.first_name and user.last_name %}
+    <h3>Hello, <span class="userpage-name">{{ user.first_name }} {{ user.last_name }}</span></h3>
+  {% elif user.first_name %}
+    <h3>Hello, <span class="userpage-name">{{ user.first_name }}</span></h3>
+  {% elif user.last_name %}
+    <h3>Hello, <span class="userpage-name">{{ user.last_name }}</span></h3>
+  {% endif %}
+  <form action="{% url 'logOutUser' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Log Out</button>
+  </form>
+{% endblock %}

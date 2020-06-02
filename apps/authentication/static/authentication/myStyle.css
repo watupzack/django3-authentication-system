@@ -1,0 +1,15 @@
+.userpage-username {
+  color: red;
+}
+
+.userpage-name {
+  color: blue;
+}
+#proj_name {
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #003359;
+}

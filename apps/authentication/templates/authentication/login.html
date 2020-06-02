@@ -1,0 +1,24 @@
+{% extends 'authentication/base.html' %}
+{% block content %}
+  {% if error %}
+  <div class="row justify-content-center">
+    <div class="alert alert-danger col-6" role="alert">
+      {{ error }}
+    </div>
+  </div>
+  {% endif %}
+  <form method="POST">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <input type="text" class="form-control" name="username" placeholder="Username" required>
+      </div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <div class="col-6">
+        <input type="password" class="form-control" name="password" placeholder="Password" required>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary col-6 w-100">Log In</button>
+  </form>
+{% endblock %}
